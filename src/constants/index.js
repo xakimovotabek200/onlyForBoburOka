@@ -32,11 +32,6 @@ export const navBarList = [
   },
   {
     _id: 1004,
-    title: "Buyurtmalarigiz",
-    link: "/buyurtmalaringiz",
-  },
-  {
-    _id: 1005,
     title: "Aloqa",
     link: "contact",
   },

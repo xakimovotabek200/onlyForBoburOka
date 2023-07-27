@@ -97,7 +97,7 @@ const Header = () => {
                         onClick={() => setCategory(!category)}
                         className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
                       >
-                        Categoriya{" "}
+                        ategoriya{" "}
                         <span className="text-lg">{category ? "-" : "+"}</span>
                       </h1>
                       {category && (
@@ -107,11 +107,6 @@ const Header = () => {
                           transition={{ duration: 0.4 }}
                           className="text-sm flex flex-col gap-1"
                         >
-                          {/* <li className="headerSedenavLi">Futbolkalar</li>
-                          <li className="headerSedenavLi">Sumkalar</li>
-                          <li className="headerSedenavLi">Oyoq kiyimlar</li>
-                          <li className="headerSedenavLi">Ryugzaklar</li>
-                          <li className="headerSedenavLi">Formalar</li> */}
                         </motion.ul>
                       )}
                     </div>

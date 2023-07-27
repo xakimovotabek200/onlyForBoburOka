@@ -39,47 +39,52 @@ function Mycomponent() {
     console.log(bodyContent);
   };
   return (
-    <form onSubmit={HandelArea}>
+    <form onSubmit={HandelArea} className="my-3">
       <input
-        className="w-full py-1 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
-        placeholder="Matn"
+        placeholder="Ismingiz"
         onChange={pocketInfo}
         name="name"
         value={value.name}
+        required
       />
       <br />
       <input
-        className="w-full py-1 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
-        placeholder="manzil"
+        placeholder="Manzil"
         onChange={pocketInfo}
         name="location"
         value={value.location}
+        required
       />
       <br />
       <input
-        className="w-full py-1 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="phone"
-        placeholder="telefon raqam"
+        placeholder="Telefon raqam"
         onChange={pocketInfo}
         name="phone"
         value={value.phone}
+        required
       />
       <br />
 
       <input
-        className="w-full py-1 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
-        placeholder="mahsulot"
+        placeholder="Mahsulot"
         onChange={pocketInfo}
         name="product"
         value={value.product}
+        required
       />
       <br />
       <button
         onClick={addApplication}
-        className="bg-primeColor text-white rounded-xl text-lg mt-6 font-bodyFont w-[185px] h-[50px] hover:bg-black duration-300 font-bold"
+        className="w-52 h-10 bg-primeColor text-white text-lg mt-4 hover:bg-black duration-300 my-3"
+        type="submit"
       >
         Arizani jonatish
       </button>

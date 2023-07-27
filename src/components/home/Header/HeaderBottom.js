@@ -73,7 +73,7 @@ const HeaderBottom = () => {
                     Futbolkalar
                   </Link>
                 </li>
-                <li>
+                <li className="my-3">
                   <Link
                     to="ryugzak"
                     className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer"
@@ -81,7 +81,7 @@ const HeaderBottom = () => {
                     Ryugzaklar
                   </Link>
                 </li>
-                <li>
+                <li className="my-3">
                   <Link
                     to="formalar"
                     className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer"
@@ -89,7 +89,7 @@ const HeaderBottom = () => {
                     Formalar
                   </Link>
                 </li>
-                <li>
+                <li className="my-3">
                   <Link
                     to="shoes"
                     className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer"
@@ -97,7 +97,7 @@ const HeaderBottom = () => {
                     Oyoq kiyimlar
                   </Link>
                 </li>
-                <li>
+                <li className="my-3">
                   <Link
                     to="sumkalar"
                     className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer"

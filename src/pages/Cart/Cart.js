@@ -38,7 +38,7 @@ const Cart = () => {
             <h2 className="col-span-2">Mahsulot</h2>
             <h2>Narxi</h2>
             <h2>Miqdori</h2>
-            <h2>Sub jami</h2>
+            <h2>Jami</h2>
           </div>
           <div className="mt-5">
             {products.map((item) => (
@@ -62,26 +62,26 @@ const Cart = () => {
                 <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
                   Oraliq jami
                   <span className="font-semibold tracking-wide font-titleFont">
-                    ${totalAmt}
+                    {totalAmt}
                   </span>
                 </p>
                 <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
                   Yetkazib berish to'lovi
                   <span className="font-semibold tracking-wide font-titleFont">
-                    ${shippingCharge}
+                    {shippingCharge}
                   </span>
                 </p>
                 <p className="flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-lg px-4 font-medium">
                   Jami
                   <span className="font-bold tracking-wide text-lg font-titleFont">
-                    ${totalAmt + shippingCharge}
+                    {totalAmt + shippingCharge}
                   </span>
                 </p>
               </div>
               <div className="flex justify-end">
                 <Link to="/paymentgateway">
                   <button className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300">
-                    Ariza Yuborishh
+                    Ariza Yuborish
                   </button>
                 </Link>
               </div>
