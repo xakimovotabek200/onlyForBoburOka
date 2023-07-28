@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "./useFrom";
 
 const objectApp = {
@@ -9,6 +9,22 @@ const objectApp = {
 };
 function Mycomponent() {
   const [value, pocketInfo] = useForm(objectApp);
+  const [items, setItems] = useState([]);
+  const [itemss, setItemss] = useState([]);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+     setItems(items);
+    }
+    console.log(items);
+  }, []);
+  useEffect(() => {
+    const itemss = JSON.parse(localStorage.getItem('assalom'));
+    if (itemss) {
+     setItemss(itemss);
+    }
+    console.log(itemss);
+  }, []);
   const HandelArea = (e) => {
     e.preventDefault();
     console.log(value);
@@ -70,16 +86,13 @@ function Mycomponent() {
         required
       />
       <br />
-
-      <input
-        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
-        type="text"
-        placeholder="Mahsulot"
-        onChange={pocketInfo}
-        name="product"
-        value={value.product}
-        required
-      />
+          <p
+          onChange={pocketInfo}
+          name="product"
+          value={value.product}
+          required
+          className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+          >{items}({itemss})</p>
       <br />
       <button
         onClick={addApplication}

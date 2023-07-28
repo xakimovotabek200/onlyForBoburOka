@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaFacebook, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import FooterListTitle from "./FooterListTitle";
 
 const Footer = () => {
@@ -75,16 +76,22 @@ const Footer = () => {
           <FooterListTitle title="Sotuv Bo'limi" />
           <ul className="flex flex-col gap-2">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Biz bilan bog'lanish
+            <Link
+                    to="/contact">
+                    Aloqa
+                  </Link>
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Biz xaqimizda
+            <Link
+                    to="/about">
+                    Haqimizda
+                  </Link>
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Aloqa
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Vakansiyalar
+            <Link
+                    to="/shop">
+                    Sotuv bo'limi
+                  </Link>
             </li>
           </ul>
         </div>
@@ -93,7 +100,10 @@ const Footer = () => {
           <ul className="flex flex-col gap-2">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
               {" "}
-              Buyurmalaringiz
+              <Link
+                    to="/cart">
+                    Buyrutmalaringiz
+                  </Link>
             </li>
           </ul>
         </div>

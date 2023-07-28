@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { ImCross } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import {
@@ -9,6 +9,12 @@ import {
 
 const ItemCard = ({ item }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(item.name));
+  }, []);
+  useEffect(() => {
+    localStorage.setItem('assalom', JSON.stringify(item.quantity));
+  }, []);
   return (
     <div className="w-full grid grid-cols-5 mb-4 border py-2">
       <div className="flex col-span-5 mdl:col-span-2 items-center gap-4 ml-4">

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Heading from "../../../../components/home/Products/Heading";
 import Product from "../../../../components/home/Products/Product";
-import {
-  spfOne,
-  spfTwo,
-  spfThree,
-  spfFour,
-} from "../../../../assets/images/index";
+
 
 const Ryukzak = () => {
   const [data, setData] = useState([]);
@@ -28,7 +23,7 @@ const Ryukzak = () => {
                 className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-4 gap-10"
                 key={item.id}
               >
-                <Product img={spfOne} productName={item.category_name} />
+                <Product img={`http://komiljonovdev.uz/Bobur/legendApi/public/storage/images/`+item.image} productName={item.category_name} />
               </div>
             );
           })

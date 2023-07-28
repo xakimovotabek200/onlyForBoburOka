@@ -28,7 +28,7 @@ const Formalar = () => {
                 className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-4 gap-10"
                 key={item.id}
               >
-                <Product img={spfOne} productName={item.category_name} />
+                <Product img={`http://komiljonovdev.uz/Bobur/legendApi/public/storage/images/`+item.image} productName={item.category_name} />
               </div>
             );
           })

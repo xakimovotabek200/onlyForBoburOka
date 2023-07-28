@@ -20,7 +20,6 @@ import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
-import Journal from "./pages/Journal/Journal";
 import Offer from "./pages/Offer/Offer";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
@@ -47,7 +46,6 @@ const router = createBrowserRouter(
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/journal" element={<Journal />}></Route>
         <Route path="/offer" element={<Offer />}></Route>
         <Route path="/product/:_id" element={<ProductDetails />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
