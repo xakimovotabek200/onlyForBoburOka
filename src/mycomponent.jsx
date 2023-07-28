@@ -86,13 +86,26 @@ function Mycomponent() {
         required
       />
       <br />
-          <p
-          onChange={pocketInfo}
-          name="product"
-          value={value.product}
-          required
-          className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
-          >{items}({itemss})</p>
+        <input
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        type="text"
+        placeholder="Mahsulot"
+        onChange={pocketInfo}
+        name="product"
+        defaultValue={localStorage.getItem("items")}
+        required
+        
+      />
+      <br />
+      <input
+        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
+        type="text"
+        placeholder="Mahsulot"
+        onChange={pocketInfo}
+        name="product"
+        defaultValue={localStorage.getItem("assalom")}
+        required
+      />
       <br />
       <button
         onClick={addApplication}
