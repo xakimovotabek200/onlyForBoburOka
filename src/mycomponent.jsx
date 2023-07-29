@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import localStorage from "redux-persist/es/storage";
 import { useForm } from "./useFrom";
+import localStorageApi from "redux-persist/es/storage";
 
 const objectApp = {
   name: "",
@@ -12,19 +14,18 @@ function Mycomponent() {
   const [items, setItems] = useState([]);
   const [itemss, setItemss] = useState([]);
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('items'));
     if (items) {
-     setItems(items);
+      setItems(items);
     }
     console.log(items);
   }, []);
   useEffect(() => {
-    const itemss = JSON.parse(localStorage.getItem('assalom'));
     if (itemss) {
-     setItemss(itemss);
+      setItemss(itemss);
     }
     console.log(itemss);
   }, []);
+
   const HandelArea = (e) => {
     e.preventDefault();
     console.log(value);
@@ -86,15 +87,14 @@ function Mycomponent() {
         required
       />
       <br />
-        <input
+      <input
         className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
         placeholder="Mahsulot"
         onChange={pocketInfo}
         name="product"
-        defaultValue={localStorage.getItem("items")}
+        defaultValue={localStorage.getItem("helloData")}
         required
-        
       />
       <br />
       <input
@@ -103,7 +103,7 @@ function Mycomponent() {
         placeholder="Mahsulot"
         onChange={pocketInfo}
         name="product"
-        defaultValue={localStorage.getItem("assalom")}
+        defaultValue={localStorage.getItem("salom")}
         required
       />
       <br />

@@ -15,6 +15,7 @@ const HeaderBottom = () => {
   const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+
   useEffect(() => {
     const handleClick = (e) => {
       if (ref.current.contains(e.target)) {
@@ -40,12 +41,25 @@ const HeaderBottom = () => {
   };
 
   useEffect(() => {
-    const filtered = paginationItems.filter((item) =>
-      item.productName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  }, [searchQuery]);
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `http://komiljonovdev.uz/Bobur/legendApi/api/getProduct?search=${searchQuery}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
 
+        const data = await response.json();
+        setFilteredProducts(data.products); // Malumotlarni o'zgaruvchiga saqlash
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProducts();
+  }, [searchQuery]);
+  console.log(filteredProducts);
   return (
     <div className="w-full bg-[#F5F5F3] relative">
       <div className="max-w-container mx-auto">
@@ -121,12 +135,15 @@ const HeaderBottom = () => {
               <div
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
-                {searchQuery &&
+                {filteredProducts &&
+                Array.isArray(filteredProducts) &&
+                filteredProducts.length > 0 ? (
                   filteredProducts.map((item) => (
                     <div
+                      key={item.id}
                       onClick={() =>
                         navigate(
-                          `/product/${item.productName
+                          `/product/${item.name
                             .toLowerCase()
                             .split(" ")
                             .join("")}`,
@@ -139,24 +156,28 @@ const HeaderBottom = () => {
                         setShowSearchBar(true) &
                         setSearchQuery("")
                       }
-                      key={item._id}
                       className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
                     >
                       <img className="w-24" src={item.img} alt="productImg" />
                       <div className="flex flex-col gap-1">
                         <p className="font-semibold text-lg">
-                          {item.productName}
+                          {item.name}
                         </p>
-                        <p className="text-xs">{item.des}</p>
+                        <p className="text-xs">{item.description}</p>
                         <p className="text-sm">
                           Price:{" "}
                           <span className="text-primeColor font-semibold">
-                            ${item.price}
+                            ${item.cost}
                           </span>
                         </p>
                       </div>
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <p className="text-center text-gray-400">
+                    No matching products found.
+                  </p>
+                )}
               </div>
             )}
           </div>
