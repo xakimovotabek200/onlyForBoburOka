@@ -16,7 +16,6 @@ const Pagination = ({ itemsPerPage }) => {
   fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getProduct")
   .then(res=>res.json())
   .then(res=>{
-    console.log(res.products);
     setFetchPaginations(res.products)
   })
 }, []);

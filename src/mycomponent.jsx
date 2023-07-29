@@ -17,21 +17,17 @@ function Mycomponent() {
     if (items) {
       setItems(items);
     }
-    console.log(items);
   }, []);
   useEffect(() => {
     if (itemss) {
       setItemss(itemss);
     }
-    console.log(itemss);
   }, []);
 
   const HandelArea = (e) => {
     e.preventDefault();
-    console.log(value);
   };
   useEffect(() => {
-    console.log("salom");
   }, [value.name]);
 
   const addApplication = async () => {
@@ -53,7 +49,6 @@ function Mycomponent() {
 
     let data = await response.json();
 
-    console.log(bodyContent);
   };
   return (
     <form onSubmit={HandelArea} className="my-3">

@@ -44,14 +44,14 @@ const HeaderBottom = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `http://komiljonovdev.uz/Bobur/legendApi/api/getProduct?search=${searchQuery}`
+          `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
-        setFilteredProducts(data.products); // Malumotlarni o'zgaruvchiga saqlash
+        setFilteredProducts(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -59,7 +59,6 @@ const HeaderBottom = () => {
 
     fetchProducts();
   }, [searchQuery]);
-  console.log(filteredProducts);
   return (
     <div className="w-full bg-[#F5F5F3] relative">
       <div className="max-w-container mx-auto">
@@ -136,8 +135,8 @@ const HeaderBottom = () => {
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
                 {filteredProducts &&
-                Array.isArray(filteredProducts) &&
-                filteredProducts.length > 0 ? (
+                  Array.isArray(filteredProducts) &&
+                  filteredProducts.length > 0 ? (
                   filteredProducts.map((item) => (
                     <div
                       key={item.id}
@@ -158,11 +157,16 @@ const HeaderBottom = () => {
                       }
                       className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
                     >
-                      <img className="w-24" src={item.img} alt="productImg" />
+                      <img
+                        className="w-24"
+                        src={
+                          `https://komiljonovdev.uz/Bobur/legendApi/public/storage/images/` +
+                          item.image
+                        }
+                        alt="productImg"
+                      />
                       <div className="flex flex-col gap-1">
-                        <p className="font-semibold text-lg">
-                          {item.name}
-                        </p>
+                        <p className="font-semibold text-lg">{item.name}</p>
                         <p className="text-xs">{item.description}</p>
                         <p className="text-sm">
                           Price:{" "}

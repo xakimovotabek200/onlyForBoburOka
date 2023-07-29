@@ -8,7 +8,6 @@ const SpecialOffers = () => {
     fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getProduct")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.products);
         setData(data.products);
       });
   }, []);

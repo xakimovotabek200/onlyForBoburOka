@@ -9,7 +9,6 @@ const Ryukzak = () => {
     fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getCategory")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.data);
         setData(response.data);
       });
   }, []);
