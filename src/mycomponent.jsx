@@ -46,16 +46,22 @@ function Mycomponent() {
 
     let bodyContent = JSON.stringify(value);
 
-    let response = await fetch(
+    const response =  await fetch(
       "https://komiljonovdev.uz/Bobur/legendApi/api/addApplication",
       {
         method: "POST",
         body: bodyContent,
         headers: headersList,
       }
-    );
+    ).then(() => {
+      console.log("succes");
+      localStorage.removeItem("persist:root")
+      window.location.reload()
+    }).catch(() => {
+      console.log("Error");
+    })
 
-    let data = await response.json();
+    
   };
  
   return (
