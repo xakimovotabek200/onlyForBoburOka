@@ -14,9 +14,6 @@ const ProductDetails = () => {
     setProductInfo(location.state.item);
     setPrevLocation(location.pathname);
   }, [location, productInfo]);
-
-
-  console.log(productInfo);
   return (
 <>
         <div className="w-full mx-auto border-b-[1px] border-b-gray-300">

@@ -90,23 +90,13 @@ function Mycomponent() {
         required
       />
       <br />
-      {/* <input
-        className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
-        type="text"
-        placeholder="Mahsulot"
-        onChange={pocketInfo}
-        name="product"
-        value={selectedItemsLength}
-        required
-      />
-      <br /> */}
       <input
         className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
         placeholder="Mahsulot"
- 
         name="product"
-      value={selectedProducts.map(item => ` ${item.name} - ${item.quantity} - ${item.price}`)}
+        onChange={pocketInfo}
+        value={selectedProducts.map(item =>`${item.name} - ${item.quantity} - ${item.price}`)}
         required
       />
       <br />

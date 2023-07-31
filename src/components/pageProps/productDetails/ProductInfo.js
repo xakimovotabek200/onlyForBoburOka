@@ -4,7 +4,6 @@ import { addToCart } from "../../../redux/orebiSlice";
 
 const ProductInfo = ({ productInfo }) => {
   const dispatch = useDispatch();
-  // console.log(productInfo);
   return (
 <>
     <div key={productInfo.id} className="flex flex-col gap-5">
@@ -17,11 +16,11 @@ const ProductInfo = ({ productInfo }) => {
         dispatch(
           addToCart({
             _id: productInfo.id,
-            name: productInfo.productName,
-            quantity: null,
-            image:productInfo.img,
+            name: productInfo.productName ? productInfo.productName : productInfo.name,
+            quantity: 1,
+            image: productInfo.img ? productInfo.img : `https://komiljonovdev.uz/Bobur/legendApi/public/storage/images/`+productInfo.image,
             badge: productInfo.badge,
-            price: productInfo.price,
+            price: productInfo.price ? productInfo.price : productInfo.cost,
           })
         )
       }

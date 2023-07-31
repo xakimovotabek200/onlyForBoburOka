@@ -40,25 +40,27 @@ const HeaderBottom = () => {
     setSearchQuery(e.target.value);
   };
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(
-          `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
 
-        const data = await response.json();
-        setFilteredProducts(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(
+        `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
+      )
+      if (!response.ok) {
       }
-    };
+      const data = await response.json();
+      setFilteredProducts(data);
+    } catch (error) {
+      console.error("Error fetching data:", error)
+    }
+  };
+
+  useEffect(() => {
 
     fetchProducts();
+
   }, [searchQuery]);
+
   return (
     <div className="w-full bg-[#F5F5F3] relative">
       <div className="max-w-container mx-auto">
