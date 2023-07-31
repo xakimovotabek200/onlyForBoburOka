@@ -1,8 +1,8 @@
 import logo from "./orebiLogo.png";
 import logoLight from "./logoLight.png";
-import bannerImgOne from "./banner/8261171.jpg";
-import bannerImgTwo from "./banner/18234818.jpg";
-import bannerImgThree from "./banner/discount-shopping-season-with-sale.jpg";
+import bannerImgOne from "./banner/saleshop2.jpg";
+import bannerImgTwo from "./banner/saleshop.jpg";
+import bannerImgThree from "./banner/saleshop1.jpg";
 
 // ============== Products Start here ====================
 // New Arrivals

@@ -1,34 +1,42 @@
 import React, { useEffect, useState } from "react";
 import localStorage from "redux-persist/es/storage";
 import { useForm } from "./useFrom";
-import localStorageApi from "redux-persist/es/storage";
+import {useSelector} from  "react-redux"
 
-const objectApp = {
-  name: "",
-  phone: "",
-  location: "",
-  product: "",
-};
 function Mycomponent() {
-  const [value, pocketInfo] = useForm(objectApp);
+ 
   const [items, setItems] = useState([]);
   const [itemss, setItemss] = useState([]);
+  const [selectedItemsLength, setSelectedItemsLength] = useState([]);
+  let selectedProducts = useSelector((state) => state.orebiReducer.products)
+  
+  const objectApp = {
+    name: "",
+    phone: "",
+    location: "",
+    product: String(selectedProducts.map(item => ` ${item.name} - ${item.quantity}`)),
+  };
+  const [value, pocketInfo] = useForm(objectApp);
   useEffect(() => {
     if (items) {
       setItems(items);
     }
   }, []);
   useEffect(() => {
-    if (itemss) {
-      setItemss(itemss);
+ 
+  }, []);
+  useEffect(() => {
+    let count = 0
+    for (let index = 0; index < selectedProducts.length; index++) {
+      count+=selectedProducts[index].quantity
+      
     }
+    setSelectedItemsLength(count)
   }, []);
 
   const HandelArea = (e) => {
     e.preventDefault();
   };
-  useEffect(() => {
-  }, [value.name]);
 
   const addApplication = async () => {
     let headersList = {
@@ -48,8 +56,8 @@ function Mycomponent() {
     );
 
     let data = await response.json();
-
   };
+ 
   return (
     <form onSubmit={HandelArea} className="my-3">
       <input
@@ -82,23 +90,23 @@ function Mycomponent() {
         required
       />
       <br />
-      <input
+      {/* <input
         className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
         placeholder="Mahsulot"
         onChange={pocketInfo}
         name="product"
-        defaultValue={localStorage.getItem("helloData")}
+        value={selectedItemsLength}
         required
       />
-      <br />
+      <br /> */}
       <input
         className="w-full py-1 my-3 border-b-2 px-2 text-base  font-medium placeholder:font-normal placeholder:text-xl outline-none focus-within:border-primeColor"
         type="text"
         placeholder="Mahsulot"
-        onChange={pocketInfo}
+ 
         name="product"
-        defaultValue={localStorage.getItem("salom")}
+      value={selectedProducts.map(item => ` ${item.name} - ${item.quantity} - ${item.price}`)}
         required
       />
       <br />

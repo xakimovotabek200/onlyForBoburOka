@@ -33,6 +33,7 @@ const NewArrivals = () => {
               productName={item.name}
               price={item.cost}
               des={item.description}
+              id={item.id}
             />
            
           </div>
