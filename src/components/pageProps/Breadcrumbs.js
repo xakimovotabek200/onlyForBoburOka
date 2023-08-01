@@ -18,10 +18,10 @@ const Breadcrumbs = ({ prevLocation, title }) => {
         <span> {prevLocation === "" ? "Asosiy" : prevLocation}</span>
 
         <span className="px-1">
-          <HiOutlineChevronRight />
+          {/* <HiOutlineChevronRight /> */}
         </span>
         <span className="capitalize font-semibold text-primeColor">
-        {locationPath}
+        {}
         </span>
       </p>
     </div>
