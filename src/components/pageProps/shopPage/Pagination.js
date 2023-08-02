@@ -13,14 +13,14 @@ const Pagination = ({ itemsPerPage }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
   useEffect(() => {
-  fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getProduct")
-  .then(res=>res.json())
-  .then(res=>{
-    setFetchPaginations(res.products)
-  }).catch((error) => {
-    console.log(error);
-  })
-}, []);
+    fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getProduct")
+      .then(res => res.json())
+      .then(res => {
+        setFetchPaginations(res.products)
+      }).catch((error) => {
+        console.log(error);
+      })
+  }, []);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
@@ -34,16 +34,16 @@ const Pagination = ({ itemsPerPage }) => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
-        {Array.isArray(fetchPaginations) ?  fetchPaginations.map((fetchItem, index)=>{
-          return(
+        {Array.isArray(fetchPaginations) ? fetchPaginations.map((fetchItem, index) => {
+          return (
             <>
-            <div style={{width: "100%"}} key={fetchItem.id}>
-              <Product
-          img={`http://komiljonovdev.uz/Bobur/legendApi/public/storage/images/`+fetchItem.image}
-          productName={fetchItem.name}
-          price={fetchItem.cost}
-          des={fetchItem.description}
-        />
+              <div style={{ width: "100%" }} key={fetchItem.id}>
+                <Product
+                  img={`http://komiljonovdev.uz/Bobur/legendApi/public/storage/images/` + fetchItem.image}
+                  productName={fetchItem.name}
+                  price={fetchItem.cost}
+                  des={fetchItem.description}
+                />
               </div>
             </>
           )

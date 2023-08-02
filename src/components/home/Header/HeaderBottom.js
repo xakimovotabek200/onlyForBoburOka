@@ -16,21 +16,21 @@ const HeaderBottom = () => {
   const navigate = useNavigate();
   const ref = useRef();
 
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (ref.current.contains(e.target)) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClick = (e) => {
+  //     if (ref.current.contains(e.target)) {
+  //       setShow(true);
+  //     } else {
+  //       setShow(false);
+  //     }
+  //   };
 
-    document.body.addEventListener("click", handleClick);
+  //   document.body.addEventListener("click", handleClick);
 
-    return () => {
-      document.body.removeEventListener("click", handleClick);
-    };
-  }, [show, ref]);
+  //   return () => {
+  //     document.body.removeEventListener("click", handleClick);
+  //   };
+  // }, [show, ref]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -40,29 +40,26 @@ const HeaderBottom = () => {
     setSearchQuery(e.target.value);
   };
 
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      let headersList = {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      };
 
+      let response = await fetch(
+        `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`,
+        {
+          method: "GET",
+          headers: headersList,
+        }
+      );
 
-  const fetchProducts =  () => {
-      fetch(
-        `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
-     ).then((response) => {
-       const data = response.json();
-console.log(response);
-       
-      setFilteredProducts(data || []) ;
-     }).catch((error) => {
-        console.log(error);
-      })
-     
- 
-
-    
-  };
+      let data = await response.json();
+      setFilteredProducts(data || []);
+    };
 
     fetchProducts();
-
   }, [searchQuery]);
   return (
     <div className="w-full bg-[#F5F5F3] relative">
@@ -140,8 +137,8 @@ console.log(response);
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
                 {filteredProducts &&
-                  Array.isArray(filteredProducts) &&
-                  filteredProducts.length > 0 ? (
+                Array.isArray(filteredProducts) &&
+                filteredProducts.length > 0 ? (
                   filteredProducts.map((item) => (
                     <div
                       key={item.id}
