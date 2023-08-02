@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React,{ useEffect,useState } from "react";
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import {
-  bestSellerOne,
-  bestSellerTwo,
-  bestSellerThree,
-  bestSellerFour,
-} from "../../../assets/images/index";
 
 const BestSellers = () => {
   const [data, setData] = useState([]);
@@ -26,7 +20,9 @@ const BestSellers = () => {
       <Heading heading="Tovarlar" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-4 gap-10">
         {loading ? (
-          <h1 className="text-4xl text-center">Yuklanmoqda....</h1>
+         <div className="container_loader">
+            <span class="loader"></span>
+         </div>
         ) : (
           data?.map((item) => {
             return (

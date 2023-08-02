@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { lazy } from "react";
+import React,{ Suspense,lazy } from "react";
 import {
   Outlet,
   Route,
@@ -88,7 +87,7 @@ function App() {
 // Create a new component to wrap App with Suspense for lazy loading
 function AppWithSuspense() {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading/>}>
       <App />
     </Suspense>
   );
