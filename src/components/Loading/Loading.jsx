@@ -3,8 +3,8 @@ import "./Loading.css";
 
 function Loading() {
   return (
-    <div class="loadingio-spinner-cube-d42f6qaby15">
-      <div class="ldio-s64k95ft9y9">
+    <div className="loadingio-spinner-cube-d42f6qaby15">
+      <div className="ldio-s64k95ft9y9">
         <div></div>
         <div></div>
         <div></div>

@@ -35,8 +35,8 @@ const Pagination = ({ itemsPerPage }) => {
         {Array.isArray(fetchPaginations)
           ? fetchPaginations.map((fetchItem, index) => {
               return (
-                <>
-                  <div style={{ width: "100%" }} key={fetchItem.id}>
+                <div key={fetchItem.id}>
+                  <div style={{ width: "100%" }}>
                     <Product
                       img={
                         `http://komiljonovdev.uz/Bobur/legendApi/public/storage/images/` +
@@ -47,7 +47,7 @@ const Pagination = ({ itemsPerPage }) => {
                       des={fetchItem.description}
                     />
                   </div>
-                </>
+                </div>
               );
             })
           : null}
