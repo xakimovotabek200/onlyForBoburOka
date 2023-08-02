@@ -41,26 +41,29 @@ const HeaderBottom = () => {
   };
 
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch(
-        `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
-      )
-      if (!response.ok) {
-      }
-      const data = await response.json();
-      setFilteredProducts(data);
-    } catch (error) {
-      console.error("Error fetching data:", error)
-    }
-  };
-
   useEffect(() => {
+
+
+  const fetchProducts =  () => {
+      fetch(
+        `http://komiljonovdev.uz/Bobur/legendApi/api/search?name=${searchQuery}`
+     ).then((response) => {
+       const data = response.json();
+console.log(response);
+       
+      setFilteredProducts(data || []) ;
+     }).catch((error) => {
+        console.log(error);
+      })
+     
+ 
+
+    
+  };
 
     fetchProducts();
 
   }, [searchQuery]);
-
   return (
     <div className="w-full bg-[#F5F5F3] relative">
       <div className="max-w-container mx-auto">

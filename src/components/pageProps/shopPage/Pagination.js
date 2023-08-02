@@ -17,6 +17,8 @@ const Pagination = ({ itemsPerPage }) => {
   .then(res=>res.json())
   .then(res=>{
     setFetchPaginations(res.products)
+  }).catch((error) => {
+    console.log(error);
   })
 }, []);
   const endOffset = itemOffset + itemsPerPage;

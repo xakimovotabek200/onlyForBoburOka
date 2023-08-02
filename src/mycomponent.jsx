@@ -54,13 +54,12 @@ function Mycomponent() {
         headers: headersList,
       }
     ).then(() => {
-      console.log("succes");
+      alert("Sizning arizangiz muoffaqqiyatli jo'natildi adminlar tominidan ko'rib chiqiladi");
       localStorage.removeItem("persist:root")
       window.location.reload()
     }).catch(() => {
       console.log("Error");
     })
-
     
   };
  

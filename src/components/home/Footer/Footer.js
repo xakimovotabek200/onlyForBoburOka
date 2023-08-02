@@ -77,18 +77,6 @@ const Footer = () => {
           <ul className="flex flex-col gap-2">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
             <Link
-                    to="/contact">
-                    Aloqa
-                  </Link>
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-            <Link
-                    to="/about">
-                    Haqimizda
-                  </Link>
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-            <Link
                     to="/shop">
                     Sotuv bo'limi
                   </Link>
