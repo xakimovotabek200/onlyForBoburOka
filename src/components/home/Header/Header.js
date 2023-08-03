@@ -112,13 +112,7 @@ const Header = () => {
                       )}
                     </div>
                     <div className="mt-4">
-                      <h1
-                        onClick={() => setBrand(!brand)}
-                        className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
-                      >
-                        Shop by Brand
-                        <span className="text-lg">{brand ? "-" : "+"}</span>
-                      </h1>
+                     
                       {brand && (
                         <motion.ul
                           initial={{ y: 15, opacity: 0 }}
