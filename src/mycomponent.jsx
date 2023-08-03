@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import localStorage from "redux-persist/es/storage";
 import { useForm } from "./useFrom";
 import {useSelector} from  "react-redux"
+import { useNavigate } from "react-router-dom";
 
 function Mycomponent() {
  
@@ -9,6 +10,7 @@ function Mycomponent() {
   const [itemss, setItemss] = useState([]);
   const [selectedItemsLength, setSelectedItemsLength] = useState([]);
   let selectedProducts = useSelector((state) => state.orebiReducer.products)
+  const navigate = useNavigate()
   
   const objectApp = {
     name: "",
@@ -56,6 +58,7 @@ function Mycomponent() {
     ).then(() => {
       alert("Sizning arizangiz muoffaqqiyatli jo'natildi adminlar tominidan ko'rib chiqiladi");
       localStorage.removeItem("persist:root")
+      navigate("/")
       window.location.reload()
     }).catch(() => {
       console.log("Error");
