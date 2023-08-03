@@ -11,7 +11,7 @@ import {
 const Futbolka = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://komiljonovdev.uz/Bobur/legendApi/api/getCategory")
+    fetch("https://komiljonovdev.uz/Bobur/legend-api/api/getProductByCategory?category_name=Futbolkalar")
       .then((response) => response.json())
       .then((response) => {
         setData(response.data);

@@ -60,8 +60,6 @@ function Mycomponent() {
       localStorage.removeItem("persist:root")
       navigate("/")
       window.location.reload()
-    }).catch(() => {
-      console.log("Error");
     })
     
   };
