@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
-import { Link, NavLink, Route, useLocation } from "react-router-dom";
-import { logoLight } from "../../../assets/images";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { navBarList } from "../../../constants";
 import Flex from "../../designLayouts/Flex";
 import Image from "../../designLayouts/Image";
@@ -72,10 +71,12 @@ const Header = () => {
                 >
                   <div className="w-full h-full bg-primeColor p-6">
                     <img
-                      className="w-28 mb-6"
-                      src={logoLight}
-                      alt="logoLight"
+                      style={{background:"white"}}
+                      className="w-28 mb-6 "
+                      src={Legend}
+                      alt="Legend"
                     />
+                    
                     <ul className="text-gray-200 flex flex-col gap-2">
                       {navBarList.map((item) => (
                         <li
@@ -97,7 +98,7 @@ const Header = () => {
                         onClick={() => setCategory(!category)}
                         className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
                       >
-                        ategoriya{" "}
+                        Kategoriya{" "}
                         <span className="text-lg">{category ? "-" : "+"}</span>
                       </h1>
                       {category && (
