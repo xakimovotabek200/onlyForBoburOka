@@ -69,15 +69,11 @@ const Header = () => {
                   transition={{ duration: 0.5 }}
                   className="w-[80%] h-full relative"
                 >
+                  
                   <div className="w-full h-full bg-primeColor p-6">
-                    <img
-                      style={{background:"white"}}
-                      className="w-28 mb-6 "
-                      src={Legend}
-                      alt="Legend"
-                    />
+                  <h1 className="text-2xl text-gray-50">Legend</h1>
                     
-                    <ul className="text-gray-200 flex flex-col gap-2">
+                    <ul className="text-gray-200 flex flex-col gap-2 pt-6">
                       {navBarList.map((item) => (
                         <li
                           className="font-normal hover:font-bold items-center text-lg text-gray-200 hover:underline underline-offset-[4px] decoration-[1px] hover:text-white md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0"
@@ -93,41 +89,7 @@ const Header = () => {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-4">
-                      <h1
-                        onClick={() => setCategory(!category)}
-                        className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
-                      >
-                        Kategoriya{" "}
-                        <span className="text-lg">{category ? "-" : "+"}</span>
-                      </h1>
-                      {category && (
-                        <motion.ul
-                          initial={{ y: 15, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ duration: 0.4 }}
-                          className="text-sm flex flex-col gap-1"
-                        >
-                        </motion.ul>
-                      )}
-                    </div>
-                    <div className="mt-4">
-                     
-                      {brand && (
-                        <motion.ul
-                          initial={{ y: 15, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ duration: 0.4 }}
-                          className="text-sm flex flex-col gap-1"
-                        >
-                          <li className="headerSedenavLi">Yangi kelgan</li>
-                          <li className="headerSedenavLi">Gadjetlar</li>
-                          <li className="headerSedenavLi">Aksessuarlar</li>
-                          <li className="headerSedenavLi">Elektronika</li>
-                          <li className="headerSedenavLi">Boshqalar</li>
-                        </motion.ul>
-                      )}
-                    </div>
+                   
                   </div>
                   <span
                     onClick={() => setSidenav(false)}
